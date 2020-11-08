@@ -8,7 +8,7 @@ import os
 import re
 import urllib
 
-from urllib.request import urlopen
+from urllib import request
 from bs4 import BeautifulSoup, ResultSet
 
 
