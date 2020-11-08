@@ -7,8 +7,8 @@ import errno
 import os
 import re
 import urllib
+import urllib.request
 
-from urllib import request
 from bs4 import BeautifulSoup, ResultSet
 
 
