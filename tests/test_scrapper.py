@@ -1,7 +1,6 @@
 import pytest
 
 from scrap.scrapper import Scrapper
-from scrap.scrapper import main
 
 
 @pytest.fixture
