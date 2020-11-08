@@ -1,6 +1,6 @@
 import pytest
 
-from foxy.scrapper import Scrapper
+from scrap.scrapper import Scrapper
 
 
 @pytest.fixture
