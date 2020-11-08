@@ -45,3 +45,50 @@ def test_get_urls_one_image_with_success(scrapper: Scrapper) -> None:
 
     # This value may vary in the future
     assert len(images_url) == 1
+
+
+def test_format_urls_with_success(scrapper: Scrapper) -> None:
+    """
+    Test if the URL has has te correct format
+    """
+    url = "http://www.pudim.com.br"
+    images_url = scrapper.get_urls(url)
+
+    expected_output = "http://www.pudim.com.br/pudim.jpg"
+    result = scrapper.format_urls(url, images_url)
+
+    assert result[0] == expected_output
+
+
+def test_format_urls_without_initial_url_with_success(scrapper: Scrapper) -> None:
+    """
+    Test if the URL has has te correct format
+    """
+    url = "https://pt.wikipedia.org/wiki/Brasil"
+    images_url = scrapper.get_urls(url)
+
+    expected_output = "http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/" + \
+                      "Cscr-featured1.png/20px-Cscr-featured1.png"
+    result = scrapper.format_urls(url, images_url)
+
+    assert result[0] == expected_output
+
+
+def test_validate_url_with_success(scrapper: Scrapper) -> None:
+    """
+    Test if the URL is valid
+    """
+    url = "http://www.pudim.com.br"
+    result = scrapper.validate_url(url)
+
+    assert result is True
+
+
+def test_validate_url_fails(scrapper: Scrapper) -> None:
+    """
+    Test if the URL is valid
+    """
+    url = "pudim.com.br"
+    result = scrapper.validate_url(url)
+
+    assert result is False

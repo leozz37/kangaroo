@@ -8,6 +8,7 @@ import os
 import re
 import urllib
 import urllib.request
+import validators
 
 from bs4 import BeautifulSoup, ResultSet
 
@@ -33,7 +34,49 @@ class Scrapper:
         print(f'{len(images_url)} images found!')
         return images_url
 
-    def save_urls_to_file(self, images_url: ResultSet) -> bool:
+    def format_urls(self, search_url:str, images_url: ResultSet) -> list:
+        """
+        Scrap the website page and get the images URL
+
+        :param search_url: Target website URL
+        :type search_url: str
+
+        :param images_url: Set of images URL
+        :type images_url: ResultSet
+
+        :return: Formatted URLs
+        :rtype: list
+        """
+        if search_url[-1:] != "/":
+            search_url += "/"
+
+        formatted_urls = []
+
+        for image_url in images_url:
+            url = image_url['src']
+
+            # Special case for Wikipedia
+            if url[:2] == "//":
+                url = "http:" + url
+                formatted_urls.append(url)
+                continue
+
+            if "http" not in url:
+                url = "{}{}".format(search_url, url)
+
+            if self.validate_url(url):
+                formatted_urls.append(url)
+
+        return formatted_urls
+
+    def validate_url(self, url: str) -> bool:
+        if validators.url(url):
+            print(url)
+            return True
+        else:
+            return False
+
+    def save_urls_to_file(self, images_url: list) -> bool:
         """
         Save the images URL to a txt file
 
@@ -55,7 +98,7 @@ class Scrapper:
         # Saving content to txt file
         with open(file_path, "w") as f:
             for image in images_url:
-                f.write("https:" + image['src'] + '\r\n')
+                f.write(str(image) + '\r\n')
         return True
 
 
@@ -72,4 +115,5 @@ if __name__ == '__main__':
 
     scrapper = Scrapper()
     images_url = scrapper.get_urls(args.url)
+    images_url = scrapper.format_urls(args.url, images_url)
     scrapper.save_urls_to_file(images_url)
