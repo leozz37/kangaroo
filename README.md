@@ -1,6 +1,8 @@
 # Foxy 🦊
 
 ![Python](https://github.com/leozz37/foxy/workflows/Python/badge.svg)
+[![Documentation](https://codedocs.xyz/leozz37/foxy.svg)](https://codedocs.xyz/leozz37/foxy/)
+
 
 Download all images from a website!
 
