@@ -31,4 +31,9 @@ jobs:
     - name: Test with pytest
       run: pytest --cov-report=xml --cov=. -v
     - name: Uploading Codecov report
-      run: bash <(curl -s https://codecov.io/bash)
+    - uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        fail_ci_if_error: true
+        verbose: true
