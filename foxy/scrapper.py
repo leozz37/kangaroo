@@ -12,7 +12,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup, ResultSet
 
 
-class Foxy:
+class Scrapper:
     def get_urls(self, search_url: str) -> ResultSet:
         """
         Scrap the website page and get the images URL
@@ -71,6 +71,6 @@ if __name__ == '__main__':
 
     args = arg_parser.parse_args()
 
-    scrapper = Foxy()
+    scrapper = Scrapper()
     images_url = scrapper.get_urls(args.url)
     scrapper.save_urls_to_file(images_url)
