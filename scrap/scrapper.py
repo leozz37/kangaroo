@@ -6,7 +6,6 @@ import argparse
 import errno
 import os
 import re
-import requests
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup, ResultSet
@@ -60,7 +59,6 @@ if __name__ == '__main__':
     """
     Main program entrypoint
     """
-    # Command line parser
     arg_parser = argparse.ArgumentParser()
 
     arg_parser.add_argument("-u", "--url", dest="url", action="store", required=True,
