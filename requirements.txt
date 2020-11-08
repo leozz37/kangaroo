@@ -2,3 +2,5 @@ beautifulsoup4~=4.9.3
 pytest~=6.1.2
 pytest-cov ~= 2.10.1
 requests~=2.24.0
+validators~=0.18.1
+setuptools~=41.2.0
