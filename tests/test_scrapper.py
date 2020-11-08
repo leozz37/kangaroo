@@ -92,3 +92,18 @@ def test_validate_url_fails(scrapper: Scrapper) -> None:
     result = scrapper.validate_url(url)
 
     assert result is False
+
+
+def test_save_urls_to_file_with_success(scrapper: Scrapper) -> None:
+    """
+    Test if URLs are being saved into txt
+    """
+    url = "http://www.pudim.com.br/"
+    images_url = scrapper.get_urls(url)
+    images_url = scrapper.format_urls(url, images_url)
+    scrapper.save_urls_to_file(images_url)
+
+    expected_output = images_url[0] + "\n"
+    resulted_output = open("../data/images_urls.txt", "r").read()
+
+    assert expected_output == resulted_output
