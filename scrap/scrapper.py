@@ -69,6 +69,15 @@ class Scrapper:
         return formatted_urls
 
     def validate_url(self, url: str) -> bool:
+        """
+        Validates URL
+
+        :param url: URL to be validate
+        :type url: str
+
+        :return: True if URL is valid, False if is not
+        :rtype: bool
+        """
         if validators.url(url):
             return True
         else:
