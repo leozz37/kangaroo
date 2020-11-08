@@ -89,11 +89,7 @@ class Scrapper:
         # Creating directory and file if doesn't exists
         file_path = "../data/images_urls.txt"
         if not os.path.exists(os.path.dirname(file_path)):
-            try:
                 os.makedirs(os.path.dirname(file_path))
-            except OSError as exc:
-                if exc.errno != errno.EEXIST:
-                    raise
 
         # Saving content to txt file
         with open(file_path, "w") as f:
