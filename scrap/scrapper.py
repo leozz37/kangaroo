@@ -96,7 +96,7 @@ class Scrapper:
         return True
 
 
-def main():
+if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument("-u", "--url", dest="url", action="store",
                             required=True, help="URL of the website to download the images")
@@ -109,7 +109,3 @@ def main():
     images_url = scrapper.get_urls(args.url)
     images_url = scrapper.format_urls(args.url, images_url)
     scrapper.save_urls_to_file(images_url)
-
-
-if __name__ == '__main__':
-    main()

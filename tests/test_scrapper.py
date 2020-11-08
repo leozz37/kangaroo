@@ -108,15 +108,3 @@ def test_save_urls_to_file_with_success(scrapper: Scrapper) -> None:
     resulted_output = open("../data/images_urls.txt", "r").read()
 
     assert expected_output == resulted_output
-
-
-def test_main_with_success(scrapper: Scrapper) -> None:
-    """
-    Test main function
-    """
-    main()
-
-    expected_output = "http://www.pudim.com.br/pudim.jpg\n"
-    resulted_output = open("../data/images_urls.txt", "r").read()
-
-    assert expected_output == resulted_output
