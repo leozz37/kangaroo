@@ -3,6 +3,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d0ecfb33e92f46b4aa08ad6713a613f4)](https://www.codacy.com/gh/leozz37/foxy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leozz37/foxy&amp;utm_campaign=Badge_Grade)
 ![Python](https://github.com/leozz37/foxy/workflows/Python/badge.svg)
 [![Documentation](https://codedocs.xyz/leozz37/foxy.svg)](https://codedocs.xyz/leozz37/foxy/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Download all images from a website!
 
