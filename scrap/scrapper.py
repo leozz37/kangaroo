@@ -6,6 +6,7 @@ import argparse
 import errno
 import os
 import re
+import urllib
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup, ResultSet
@@ -22,8 +23,11 @@ class Scrapper:
         :return: set of images URL
         :rtype: ResultSet
         """
-        html = urlopen(search_url)
-        bs = BeautifulSoup(html, 'html.parser')
+        req = urllib.request.Request(search_url)
+        with urllib.request.urlopen(req) as response:
+            page = response.read()
+
+        bs = BeautifulSoup(page, 'html.parser')
         re_files_format = ".svg|.jpg|.jpeg|.png|.gif"
         images_url = bs.find_all('img', {'src': re.compile(re_files_format)})
         print(f'{len(images_url)} images found!')
@@ -56,9 +60,6 @@ class Scrapper:
 
 
 if __name__ == '__main__':
-    """
-    Main program entrypoint
-    """
     arg_parser = argparse.ArgumentParser()
 
     arg_parser.add_argument("-u", "--url", dest="url", action="store", required=True,
