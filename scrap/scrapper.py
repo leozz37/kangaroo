@@ -3,7 +3,6 @@
 #   This is a tool for gathering image from the internet
 #
 import argparse
-import errno
 import os
 import re
 import urllib
@@ -71,7 +70,6 @@ class Scrapper:
 
     def validate_url(self, url: str) -> bool:
         if validators.url(url):
-            print(url)
             return True
         else:
             return False
@@ -98,18 +96,20 @@ class Scrapper:
         return True
 
 
-if __name__ == '__main__':
+def main():
     arg_parser = argparse.ArgumentParser()
-
-    arg_parser.add_argument("-u", "--url", dest="url", action="store", required=True,
-                            help="URL of the website to download the images")
+    arg_parser.add_argument("-u", "--url", dest="url", action="store",
+                            required=True, help="URL of the website to download the images")
 
     arg_parser.add_argument("-d", "--download", dest="download", action="store_true",
                             help="Download flag, the images will be downloaded")
-
     args = arg_parser.parse_args()
 
     scrapper = Scrapper()
     images_url = scrapper.get_urls(args.url)
     images_url = scrapper.format_urls(args.url, images_url)
     scrapper.save_urls_to_file(images_url)
+
+
+if __name__ == '__main__':
+    main()

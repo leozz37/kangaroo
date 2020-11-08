@@ -1,7 +1,7 @@
 import pytest
-import os
 
 from scrap.scrapper import Scrapper
+from scrap.scrapper import main
 
 
 @pytest.fixture
@@ -114,7 +114,7 @@ def test_main_with_success(scrapper: Scrapper) -> None:
     """
     Test main function
     """
-    os.popen("python3 ../scrap/scrapper.py -u \"http://www.pudim.com.br\"")
+    main()
 
     expected_output = "http://www.pudim.com.br/pudim.jpg\n"
     resulted_output = open("../data/images_urls.txt", "r").read()
