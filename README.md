@@ -18,7 +18,7 @@ Download all images from a website!
 
 ## Running
 
-Install dependencies:
+Install the dependencies:
 
 ```shell
 $ pip install -r requirements.txt
