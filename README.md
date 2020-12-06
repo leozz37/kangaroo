@@ -4,6 +4,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/foxy/badge)](https://www.codefactor.io/repository/github/leozz37/foxy)
 ![Python](https://github.com/leozz37/foxy/workflows/Python/badge.svg)
 [![codecov](https://codecov.io/gh/leozz37/foxy/branch/master/graph/badge.svg?token=tcnAitJ8Ea)](https://codecov.io/gh/leozz37/foxy)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9e73b5a9936f3c1fbd51/maintainability)](https://codeclimate.com/github/leozz37/foxy/maintainability)
 [![Documentation](https://codedocs.xyz/leozz37/foxy.svg)](https://codedocs.xyz/leozz37/foxy/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
