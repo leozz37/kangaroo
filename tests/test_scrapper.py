@@ -21,7 +21,7 @@ def test_get_urls_with_success(scrapper: Scrapper) -> None:
     images_url = scrapper.get_urls(url)
 
     # This value may vary in the future
-    assert len(images_url) == 52
+    assert len(images_url) == 51
 
 
 def test_get_urls_zero_images_with_success(scrapper: Scrapper) -> None:
