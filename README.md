@@ -26,7 +26,7 @@ Kangaroo is a user-friendly lib for sockets in Python. You can send and listen t
 First you need [Python](https://www.python.org/) installed (version 3.6+ is required), then you can install Kangaroo:
 
 ```shell
-$ pip install Kangaroo
+$ pip install -i https://test.pypi.org/simple/ kangaroo-sockets==0.1
 ```
 
 Import it ib your code:
