@@ -4,8 +4,9 @@
 [![codecov](https://codecov.io/gh/leozz37/kangaroo/branch/main/graph/badge.svg?token=9MbL9uMi8u)](https://codecov.io/gh/leozz37/kangaroo)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5b4ee1430037ca66735e/maintainability)](https://codeclimate.com/github/leozz37/kangaroo/maintainability)
 [![Release](https://img.shields.io/github/v/release/leozz37/kangaroo)](https://github.com/leozz37/kangaroo/releases)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=flat-square)](https://github.com/pre-commit/pre-commit)
-[![code style: black](https://img.shields.io/static/v1?label=code%20style&message=black&color=black&style=flat-square)](https://github.com/psf/black)
+<!-- [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=flat-square)](https://github.com/pre-commit/pre-commit)
+[![code style: black](https://img.shields.io/static/v1?label=code%20style&message=black&color=black&style=flat-square)](https://github.com/psf/black)-->
+[![PyPI version](https://badge.fury.io/py/kangaroo-sockets.svg)](https://badge.fury.io/py/kangaroo-sockets)
 [![License](https://img.shields.io/github/license/pytransitions/transitions.svg)](LICENSE)
 
 Kangaroo is a user-friendly lib for sockets in Python. You can send and listen to TCP sockets with a few lines of code.
