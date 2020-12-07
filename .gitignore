@@ -129,8 +129,4 @@ dmypy.json
 .pyre/
 
 # IDE
-.DS_Store
-.idea
-
-# Foxy
-/data/
+.idea/
