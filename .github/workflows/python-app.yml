@@ -1,48 +1,43 @@
-name: Python
+name: Unit Tests
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
-  build:
+    build:
 
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
+            - name: Set up Python 3.8
+              uses: actions/setup-python@v2
+              with:
+                python-version: 3.8
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest pytest-html coverage
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install pytest pytest-cov pytest-html flake8
 
-    - name: Lint with flake8
-      run: |
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+            - name: Run Unit Tests
+              run: python3 -m pytest --cov-report=xml --cov=. --html=report.html -v
 
-    - name: Test with pytest
-      run: pytest --cov-report=xml --html=report.html --cov=. -v
+            - name: Lint
+              run: flake8
 
-    - uses: codecov/codecov-action@v1
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        fail_ci_if_error: true
-        verbose: true
+            - name: Upload corevage to Codecov
+              uses: codecov/codecov-action@v1
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
+                file: ./coverage.xml
+                flags: unittests
+                fail_ci_if_error: true
+                verbose: true
 
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v2
-      with:
-        name: code-coverage-report
-        path: ./report.html
+            - name: Export Unit Tests Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: unit-tests-report
+                path: ./report.html
